@@ -7,7 +7,9 @@ In a Docker deployment, these should be run from in the Docker container. You ca
 ## Rake Tasks for Tenant Management
 
 ### Show Tenants
-`./bin/rake tenants`
+```sh
+./bin/rake tenants
+```
 
 When you run this command, Scalelite will return a list of all tenants, along with their IDs, names, and secrets. For example:
 
@@ -21,26 +23,34 @@ id: 4f3e4bb8-2a4e-41a6-9af8-0678c651777f
 ```
 
 ### Add Tenant
-`./bin/rake tenants:add[id,secrets]`
+```sh
+./bin/rake tenants:add[id,secrets]
+```
 
 If you need to add multiple secrets for a tenant, you can provide a colon-separated (`:`) list of secrets when creating the tenant in Scalelite.
 
 When you run this command, Scalelite will print out the ID of the newly created tenant, followed by `OK` if the operation was successful.
 
 ### Update Tenant
-`./bin/rake tenants:update[id,name,secrets]`
+```sh
+./bin/rake tenants:update[id,name,secrets]
+```
 
 You can update an existing tenants name or secrets using this rake command.
 
 When you run this command, Scalelite will print out the ID of the updated tenant, followed by `OK` if the operation was successful.
 
 ### Remove Tenant
-`./bin/rake tenants:remove[id]`
+```sh
+./bin/rake tenants:remove[id]
+```
 
 Warning: Removing a tenant with data still in the database may cause some inconsistencies.
 
 ### Associate Old Recordings with a Tenant
-`./bin/rake recordings:addToTenant[tenant-id]`
+```sh
+./bin/rake recordings:addToTenant[tenant-id]
+```
 
 If you are switching over from single-tenancy to multitenancy, the existing recordings will have to be transferred to the new tenant. The above task updates the recordings' metadata with the tenant id.
 
@@ -50,7 +60,9 @@ If you have enabled multitenancy for your Scalelite deployment, you gain the abi
 By customizing these parameters for each tenant, you can modify various aspects of the meeting experience, such as recording settings, welcome messages, and lock settings, among others. This level of customization ensures that each tenant receives a unique and tailored experience within the Scalelite platform.
 
 ### Show Tenant Settings
-`./bin/rake tenantSettings`
+```sh
+./bin/rake tenantSettings
+```
 
 When you run this command, Scalelite will return a list of all settings for all tenants. For example:
 
@@ -72,7 +84,9 @@ Tenant: tenant2
 ```
 
 ### Add Tenant Setting
-`./bin/rake tenantSettings:add[tenant_id,param,value,override]`
+```sh
+./bin/rake tenantSettings:add[tenant_id,param,value,override]
+```
 
 To add a new TenantSetting, Scalelite requires 4 values:
 1. `tenant_id`: This is the unique identifier of the tenant to which you want to add the setting.
@@ -83,7 +97,9 @@ To add a new TenantSetting, Scalelite requires 4 values:
 When you run this command, Scalelite will print out the ID of the newly created setting, followed by `OK` if the operation was successful.
 
 ### Remove Tenant Setting
-`./bin/rake tenantSettings:remove[id]`
+```sh
+./bin/rake tenantSettings:remove[id]
+```
 
 ## Rake Tasks for Server Management
 

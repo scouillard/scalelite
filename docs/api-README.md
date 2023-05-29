@@ -1,11 +1,13 @@
-# Scalelite Management using APIs
+# Scalelite Management Using APIs
 
 Scalelite comes with an API that allows for the management of tenants and servers.
 
 ## Tenants API
 
 ### Show Tenant
-`GET /api/v1/tenants/:id`
+```sh 
+GET /api/v1/tenants/:id
+```
 
 Returns the data associated with a single tenant
 
@@ -31,7 +33,9 @@ status: ok
  ```
 
 ### Show All Tenants
-`GET /api/v1/tenants`
+```sh 
+GET /api/v1/tenants
+```
 
 Returns a list of all tenants
 
@@ -55,11 +59,13 @@ status: ok
 #### Example cURL
 
 ```javascript
-  curl --request GET http://localhost:4000/api/v1/tenants
+curl --request GET http://localhost:4000/api/v1/tenants
 ```
 
 ### Add Tenant
-`POST /api/v1/tenants`
+```sh 
+POST /api/v1/tenants
+```
 
 #### Expected Parameters
 
@@ -86,11 +92,19 @@ curl --header "Content-Type: application/json" --request POST --data '{"name": "
 If you need to add multiple secrets for a tenant, you can provide a colon-separated (`:`) list of secrets when creating the tenant in Scalelite.
 
 ### Update Tenant
-`PUT api/v1/tenants/:id?name=xxx` or
+```sh
+PUT api/v1/tenants/:id?name=xxx
+```
+or
 
-`PUT api/v1/tenants/:id?secrets=xxx` or
+```sh 
+PUT api/v1/tenants/:id?secrets=xxx
+```
+or
 
-`PUT api/v1/tenants/:id?name=xxx&secrets=yyy`
+```sh 
+PUT api/v1/tenants/:id?name=xxx&secrets=yyy
+```
 
 #### Expected Parameters
 
@@ -121,7 +135,9 @@ curl --header "Content-Type: application/json" --request PATCH --data '{"secrets
 ```
 
 ### Remove Tenant
-`DELETE /api/v1/tenants/:id`
+```sh
+DELETE /api/v1/tenants/:id
+```
 
 #### Expected Parameters
 `id` the id of the tenant you wish to delete
